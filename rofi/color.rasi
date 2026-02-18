@@ -1,0 +1,220 @@
+/**
+ * Full Rofi Theme
+ * Side image panel + dark overlay text panel
+ * Compatible with wal colors
+ **/
+configuration {
+    modi: "drun,run,filebrowser,window";
+    show-icons: true;
+    display-drun: "APPS";
+    display-run: "RUN";
+    display-filebrowser: "FILES";
+    display-window: "WINDOW";
+    drun-display-format: "{name}";
+    window-format: "{w} · {c} · {t}";
+}
+
+/* Global colors */
+* {
+    font: "JetBrains Mono Nerd Font 10";
+    bg: %background%;
+    bg-alt: %color1%;
+    fg: %foreground%;
+    selected: %color4%;
+    active: %color6%;
+    urgent: %color1%;
+
+    background-color: transparent;
+    text-color: @fg;
+}
+
+/* Main window */
+window {
+    transparency: "real";
+    location: center;
+    anchor: center;
+    fullscreen: false;
+    width: 1000px;
+    height: 600px;
+    border-radius: 15px;
+    background-color: @bg;
+}
+
+/* Layout */
+mainbox {
+    enabled: true;
+    spacing: 0px;
+    orientation: horizontal;
+    background-color: transparent;
+    children: [ imagebox, listbox ];
+}
+
+/* Left image panel */
+imagebox {
+    width: 400px;
+    padding: 20px;
+    spacing: 20px;
+    orientation: vertical;
+    background-color: @bg;
+    children: [ inputbar, mode-switcher ];
+}
+
+/* Right panel overlay for text */
+listbox {
+    spacing: 15px;
+    padding: 20px;
+    orientation: vertical;
+    background-color: #101010cc;
+    border-radius: 0px 15px 15px 0px;
+    children: [ message, listview ];
+}
+
+/* Input bar */
+inputbar {
+    enabled: true;
+    spacing: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #101010bb;
+    text-color: @fg;
+    children: [ textbox-prompt-colon, entry ];
+}
+
+textbox-prompt-colon {
+    enabled: true;
+    expand: false;
+    str: "";
+    background-color: transparent;
+    text-color: @fg;
+}
+
+entry {
+    enabled: true;
+    background-color: transparent;
+    text-color: @fg;
+    cursor: text;
+    placeholder: "Search...";
+    placeholder-color: @fg;
+}
+
+/* Mode Switcher */
+mode-switcher {
+    enabled: true;
+    spacing: 10px;
+    background-color: transparent;
+    orientation: vertical;
+}
+
+button {
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #101010aa;
+    text-color: @fg;
+    cursor: pointer;
+}
+
+button selected {
+    background-color: @selected;
+    text-color: @fg;
+}
+
+/* Listview & Elements */
+listview {
+    enabled: true;
+    columns: 1;
+    lines: 8;
+    cycle: true;
+    dynamic: true;
+    scrollbar: false;
+    layout: vertical;
+    spacing: 10px;
+    background-color: transparent;
+    text-color: @fg;
+}
+
+element {
+    enabled: true;
+    spacing: 12px;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: transparent;
+    text-color: @fg;
+    cursor: pointer;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color: @fg;
+}
+
+element normal.urgent {
+    background-color: @urgent;
+    text-color: @fg;
+}
+
+element normal.active {
+    background-color: @active;
+    text-color: @fg;
+}
+
+element selected.normal {
+    background-color: @selected;
+    text-color: @fg;
+}
+
+element selected.urgent {
+    background-color: @urgent;
+    text-color: @fg;
+}
+
+element selected.active {
+    background-color: @active;
+    text-color: @fg;
+}
+
+element alternate.normal {
+    background-color: transparent;
+    text-color: @fg;
+}
+
+element alternate.urgent {
+    background-color: @urgent;
+    text-color: @fg;
+}
+
+element alternate.active {
+    background-color: @active;
+    text-color: @fg;
+}
+
+element-icon {
+    size: 32px;
+    background-color: transparent;
+    cursor: inherit;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    cursor: inherit;
+    vertical-align: 0.5;
+}
+
+/* Messages */
+message {
+    background-color: transparent;
+}
+
+textbox {
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #101010dd;
+    text-color: @fg;
+}
+
+error-message {
+    padding: 15px;
+    border-radius: 20px;
+    background-color: @bg;
+    text-color: @fg;
+}

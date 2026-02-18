@@ -1,0 +1,174 @@
+/**
+ * Wallpaper Selector Theme
+ * Grid layout with image previews ONLY - no text labels
+ * Auto-updates with wal colors
+ **/
+
+configuration {
+    show-icons: true;
+}
+
+* {
+    font: "JetBrains Mono Nerd Font 10";
+    bg: #0a0a0a;
+    bg-alt: #1a1a1a;
+    fg: #ffffff;
+    selected: #5e81ac;
+    active: #88c0d0;
+    urgent: #bf616a;
+    background-color: transparent;
+    text-color: @fg;
+}
+
+window {
+    transparency: "real";
+    location: center;
+    anchor: center;
+    fullscreen: false;
+    width: 1400px;
+    height: 800px;
+    border-radius: 15px;
+    background-color: @bg;
+    border: 2px;
+    border-color: @selected;
+}
+
+mainbox {
+    enabled: true;
+    spacing: 0px;
+    padding: 10px;
+    background-color: transparent;
+    children: [ inputbar, listview ];
+}
+
+/* Search bar */
+inputbar {
+    enabled: true;
+    spacing: 10px;
+    padding: 15px 20px;
+    margin: 0px 0px 20px 0px;
+    border-radius: 12px;
+    background-color: @bg-alt;
+    text-color: @fg;
+    children: [ textbox-prompt-colon, entry ];
+}
+
+textbox-prompt-colon {
+    enabled: true;
+    expand: false;
+    str: " ";
+    background-color: transparent;
+    text-color: @selected;
+    font: "JetBrains Mono Nerd Font 14";
+}
+
+entry {
+    enabled: true;
+    background-color: transparent;
+    text-color: @fg;
+    cursor: text;
+    placeholder: "Search wallpapers...";
+    placeholder-color: #666666;
+}
+
+/* Grid of wallpapers */
+listview {
+    enabled: true;
+    columns: 4;
+    lines: 3;
+    cycle: true;
+    dynamic: true;
+    scrollbar: true;
+    layout: vertical;
+    spacing: 15px;
+    background-color: transparent;
+    text-color: @fg;
+    width: 100%;
+}
+
+scrollbar {
+    width: 6px;
+    handle-width: 10px;
+    handle-color: @selected;
+    background-color: @bg-alt;
+    border-radius: 10px;
+    padding: 0px;
+    margin: 0px 0px 0px 10px;
+}
+
+/* Individual wallpaper element - ICON ONLY */
+element {
+    enabled: true;
+    spacing: 0px;
+    padding: 5px;
+    border-radius: 12px;
+    background-color: @bg-alt;
+    text-color: @fg;
+    cursor: pointer;
+    orientation: vertical;
+}
+
+element normal.normal {
+    background-color: @bg-alt;
+    text-color: @fg;
+}
+
+element selected.normal {
+    background-color: @selected;
+    text-color: @bg;
+    border: 2px;
+    border-color: @active;
+}
+
+element alternate.normal {
+    background-color: @bg-alt;
+    text-color: @fg;
+}
+
+/* The wallpaper preview image - LARGE */
+element-icon {
+    size: 250px;
+    background-color: transparent;
+    cursor: inherit;
+    border-radius: 8px;
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+}
+
+/* HIDE THE TEXT COMPLETELY */
+element-text {
+    enabled: false;
+    background-color: transparent;
+    text-color: transparent;
+    cursor: inherit;
+    font: "JetBrains Mono Nerd Font 0";
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+}
+
+/* Message box (for errors or info) */
+message {
+    enabled: true;
+    margin: 0px;
+    padding: 15px;
+    border-radius: 12px;
+    background-color: @bg-alt;
+}
+
+textbox {
+    padding: 10px;
+    border-radius: 8px;
+    background-color: transparent;
+    text-color: @fg;
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+}
+
+error-message {
+    padding: 20px;
+    border-radius: 12px;
+    background-color: @bg;
+    text-color: @urgent;
+    border: 2px;
+    border-color: @urgent;
+}
