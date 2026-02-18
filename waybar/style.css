@@ -1,0 +1,177 @@
+@import url('file:///home/dulsara/.cache/wal/colors-waybar.css');
+
+/* UNIVERSAL */
+* {
+        font-family: 'JetBrainsMono Nerd Font', monospace;
+        font-size: 18px;
+        font-weight: 700;
+}
+
+/* WAYBAR WINDOW & TOOLTIP */
+window#waybar {
+        background: transparent;
+        border-radius: 12px;
+        padding: 6px 12px;
+}
+tooltip {
+        background: rgba(0, 0, 0, 0.85);
+        border: 2px solid @color1;
+        border-radius: 12px;
+        padding: 10px;
+}
+tooltip label {
+        color: @foreground;
+        font-size: 20px;
+}
+
+/* MODULES */
+#custom-launcher,
+#workspaces button,
+#window,
+#clock,
+#pulseaudio,
+#network,
+#cpu,
+#memory,
+#temperature,
+#battery,
+#tray,
+#custom-arch_updates,
+#custom-power {
+        transition: all 0.5s ease;
+        border-radius: 12px;
+        border: 2px solid transparent;
+        font-weight: bold;
+        color: @foreground;
+        transition: all 0.2s ease;
+        padding: 4px 8px;
+        margin: 4px 4px;
+}
+#clock {
+        background: linear-gradient(180deg, @color5 0%, @color5 70%);
+}
+#custom-launcher {
+        font-size: 22px;
+}
+#clock {
+        font-size: 18px;
+        border: 2px solid @color5;
+}
+#custom-power {
+        font-size: 22px;
+        padding: 10px 15px;
+        color: #ff5252;
+}
+#workspaces button {
+        padding: 20px 6px;
+        transition: all 1s ease;
+        border: 3px solid @color8;
+}
+#workspaces button.active {
+        padding: 100px 0;
+        background-image: linear-gradient(135deg, @color5 0%, @color5 80%);
+        border-color: @color1;
+        color: @background;
+        transition: all 1s ease;
+}
+#workspaces button.urgent {
+        background: @color9;
+        color: @background;
+        transition: all 1s ease;
+}
+
+#pulseaudio.muted,
+#network.disconnected,
+#temperature.critical,
+#battery.warning:not(.charging),
+#battery.critical:not(.charging) {
+        color: @color9;
+}
+#battery.warning:not(.charging) {
+        animation: blink 1s linear infinite;
+}
+#battery.critical:not(.charging) {
+        animation: blink 0.7s linear infinite;
+}
+
+/* HOVER EFFECTS */
+#custom-launcher:hover,
+#workspaces button:hover,
+#window:hover,
+#clock:hover,
+#pulseaudio:hover,
+#custom-arch_updates:hover,
+#network:hover,
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
+#battery:hover,
+#custom-power:hover {
+        transition: all 0.7s ease;
+        background: @color4;
+        color: @background;
+        margin: 5px;
+}
+
+/* TRAY */
+#tray {
+        background: rgba(0, 0, 0, 0.95);
+}
+
+/* ANIMATION */
+@keyframes blink {
+        0% {
+                opacity: 1;
+        }
+        50% {
+                opacity: 0.3;
+        }
+        100% {
+                opacity: 1;
+        }
+}
+#custom-arch_updates {
+        font-size: 18px;
+        font-weight: 700;
+        padding: 4px 8px;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+        color: #ffffff; /* default text color */
+}
+
+#custom-arch_updates.up-to-date {
+        color: #4caf50; /* green */
+}
+
+#custom-arch_updates.updates {
+        color: #ffb74d; /* orange */
+        animation: pulse 1.2s infinite;
+}
+
+#custom-arch_updates.offline {
+        color: #f44336; /* red */
+        font-style: italic;
+}
+
+@keyframes pulse {
+        0% {
+                opacity: 1;
+        }
+        50% {
+                opacity: 0.5;
+        }
+        100% {
+                opacity: 1;
+        }
+}
+#custom-arch_updates.up-to-date {
+        color: #4caf50;
+} /* green */
+#custom-arch_updates.updates {
+        color: #ffb74d;
+        animation: pulse 1.2s infinite;
+}
+#custom-arch_updates.offline {
+        color: #f44336;
+        font-style: italic;
+}

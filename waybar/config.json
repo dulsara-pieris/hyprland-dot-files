@@ -1,0 +1,100 @@
+[
+  {
+    "layer": "top",
+    "position": "top",
+    "height": 42,
+    "spacing": 6,
+    "output": "DP-1",
+
+    "modules-left": ["hyprland/window", "custom/cava"],
+    "modules-center": ["clock"],
+    "modules-right": [
+      "pulseaudio",
+      "network",
+      "cpu",
+      "memory",
+      "temperature",
+      "battery",
+      "tray",
+      "custom/arch_updates",
+      "custom/power"
+    ],
+
+    "custom/launcher": {
+      "format": "",
+      "on-click": "wofi --show drun",
+      "tooltip": false
+    },
+    "hyprland/workspaces": {
+      "format": "{name}",
+      "on-click": "activate",
+      "persistent-workspaces": { "*": 10 },
+      "all-outputs": true
+    },
+    "hyprland/window": {
+      "format": "{}",
+      "max-length": 60,
+      "separate-outputs": true
+    },
+    "clock": {
+      "format": "{:%H:%M %d/%m/%Y}",
+      "calendar": { "mode": "month" },
+      "on-click": "eww open dashboard"
+    },
+    "pulseaudio": {
+      "format": "{icon} {volume}%",
+      "on-scroll-up": "~/.config/eww/scripts/volume-osd.sh 5%+",
+      "on-scroll-down": "~/.config/eww/scripts/volume-osd.sh 5%-",
+      "on-click": "pavucontrol"
+    },
+
+    "network": {
+      "format-wifi": "",
+      "format-ethernet": " Connected",
+      "format-disconnected": "⚠ Offline",
+      "tooltip": false
+    },
+    "cpu": { "format": "CPU {usage}%", "interval": 2 },
+    "memory": { "format": "RAM {used:0.1f}G", "interval": 5 },
+    "temperature": { "format": "{icon} {temperatureC}°C", "interval": 5 },
+    "battery": {
+      "format": "{icon} {capacity}%",
+      "format-charging": "Charging {capacity}%",
+      "states": { "warning": 30, "critical": 15 }
+    },
+    "tray": { "icon-size": 20, "spacing": 12 },
+    "custom/arch_updates": {
+      "exec": "/home/dulsara/.config/waybar/scripts/arch_updates.sh",
+      "interval": 600,
+      "format": "{0}",
+      "class": "{1}"
+    },
+    "custom/power": {
+      "format": "⏻",
+      "on-click": "sh -c '/home/dulsara/.config/hypr/scripts/power.sh &'",
+      "tooltip": false
+    }
+  },
+  {
+    "layer": "right",
+    "position": "left",
+    "height": 42,
+    "spacing": 6,
+    "output": "DP-1",
+
+    "modules-left": ["hyprland/workspaces"],
+    "modules-right": ["tray"],
+
+    "hyprland/workspaces": {
+      "format": "{name}",
+      "on-click": "activate",
+      "persistent-workspaces": { "*": 10 },
+      "all-outputs": true
+    },
+    "hyprland/window": {
+      "format": "{}",
+      "max-length": 60,
+      "separate-outputs": true
+    }
+  }
+]

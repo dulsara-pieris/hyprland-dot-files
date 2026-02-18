@@ -1,0 +1,28 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 180,
+  "spacing": 12,
+  "output": "DP-1",
+  "click-through": false,
+
+  "modules-left": ["hyprland/window"],
+  "modules-center": ["custom/system_info", "custom/network_info", "custom/launchers"],
+  "modules-right": ["tray"],
+
+  "custom/system_info": {
+    "exec": "~/.config/waybar/scripts/system_info.sh",
+    "interval": 5,
+    "format": "{cpu} | {ram} | {disk}"
+  },
+  "custom/network_info": {
+    "exec": "~/.config/waybar/scripts/network_info.sh",
+    "interval": 5,
+    "format": "{wifi} | {ethernet}"
+  },
+  "custom/launchers": {
+    "format": "  ",
+    "on-click": "wofi --show drun",
+    "tooltip": false
+  }
+}

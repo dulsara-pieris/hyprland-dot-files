@@ -1,0 +1,28 @@
+* {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 14px;
+    padding: 6px 12px;
+    margin: 0;
+}
+
+#custom-system_info, #custom-network_info, #custom-launchers {
+    padding: 6px 10px;
+    margin: 0 6px;
+    border-radius: 8px;
+    background-color: rgba(30, 30, 30, 0.6); /* semi-transparent dark */
+    color: #ffffff;
+}
+
+#tray {
+    padding: 6px;
+}
+
+#custom-system_info:hover, #custom-network_info:hover, #custom-launchers:hover {
+    background-color: rgba(50, 50, 50, 0.8);
+}
+
+#bar {
+    background-color: rgba(30, 30, 30, 0.7); /* semi-transparent dark */
+    border-radius: 12px;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.3);
+}
